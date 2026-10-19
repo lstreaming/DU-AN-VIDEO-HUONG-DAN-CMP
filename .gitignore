@@ -218,3 +218,28 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# Bí mật — không đưa lên Git
+/du_lieu/khoa/
+# Tệp tạm và media sinh ra
+/du_lieu/tam_me/
+/du_lieu/tam_ai/
+/du_lieu/san_xuat/
+*.wav
+*.mp4
+# Python
+.venv/
+*.py[cod]
+/khoa/
+.env.*
+*.env
+*.pem
+*.key
+*credentials*.json
+api_keys_config.json
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.crt
+*.cer
+*.token
