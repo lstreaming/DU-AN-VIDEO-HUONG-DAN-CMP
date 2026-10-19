@@ -243,3 +243,6 @@ api_keys_config.json
 *.crt
 *.cer
 *.token
+/du_lieu/SO_VIEC.md
+/du_lieu/YEU_CAU_C2.md
+/du_lieu/LENH_BAN_GIAO_AI.md

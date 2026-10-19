@@ -105,7 +105,7 @@ def run_checks(root, environ=None, project_free_gb=None, c_free_gb=None):
     else:
         ignore_lines = ignore_file.read_text(encoding="utf-8").splitlines()
         ignore_rules = {line.strip() for line in ignore_lines if line.strip() and not line.lstrip().startswith("#")}
-        required_rules = {"/khoa/", "/du_lieu/khoa/", ".env", ".env.*", "*.env", "*.pem", "*.key", "*.p12", "*.pfx", "*.jks", "*.keystore", "*.crt", "*.cer", "*.token", "*credentials*.json", "/du_lieu/tam_me/", "/du_lieu/san_xuat/", "*.wav", "*.mp4"}
+        required_rules = {"/khoa/", "/du_lieu/khoa/", "/du_lieu/SO_VIEC.md", "/du_lieu/YEU_CAU_C2.md", "/du_lieu/LENH_BAN_GIAO_AI.md", ".env", ".env.*", "*.env", "*.pem", "*.key", "*.p12", "*.pfx", "*.jks", "*.keystore", "*.crt", "*.cer", "*.token", "*credentials*.json", "/du_lieu/tam_me/", "/du_lieu/san_xuat/", "*.wav", "*.mp4"}
         for rule in sorted(required_rules - ignore_rules):
             issues.append(f"thieu_gitignore_rule:{rule}")
         if any("#" in line and not line.lstrip().startswith("#") for line in ignore_lines):

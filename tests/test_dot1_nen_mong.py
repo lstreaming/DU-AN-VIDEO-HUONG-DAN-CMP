@@ -144,6 +144,9 @@ def test_preflight_rejects_missing_gitignore_rules(tmp_path):
         c_free_gb=20,
     )
     assert "thieu_gitignore_rule:/du_lieu/khoa/" in issues
+    assert "thieu_gitignore_rule:/du_lieu/SO_VIEC.md" in issues
+    assert "thieu_gitignore_rule:/du_lieu/YEU_CAU_C2.md" in issues
+    assert "thieu_gitignore_rule:/du_lieu/LENH_BAN_GIAO_AI.md" in issues
     assert "thieu_gitignore_rule:/du_lieu/tam_me/" in issues
     assert "thieu_gitignore_rule:*.env" in issues
 
@@ -179,10 +182,15 @@ def test_start_guide_and_gitignore_match_handoff_contract():
     ignore = (ROOT / ".gitignore").read_text(encoding="utf-8").splitlines()
     rules = {line.strip() for line in ignore if line.strip() and not line.lstrip().startswith("#")}
     assert len(guide) <= 25
+    assert any("du_lieu/LENH_BAN_GIAO_AI.md" in line for line in guide)
+    assert any("Không xóa/di chuyển/tải dữ liệu" in line for line in guide)
     assert "$projectRoot = (Get-Location).Path" in "\n".join(guide)
     assert "$env:TEMP = Join-Path $projectRoot 'du_lieu\\tam_me'" in "\n".join(guide)
     assert "$env:TMP = $env:TEMP" in "\n".join(guide)
     assert "/du_lieu/khoa/" in rules
+    assert "/du_lieu/SO_VIEC.md" in rules
+    assert "/du_lieu/YEU_CAU_C2.md" in rules
+    assert "/du_lieu/LENH_BAN_GIAO_AI.md" in rules
     assert "/du_lieu/tam_me/" in rules
     assert "/du_lieu/san_xuat/" in rules
     assert "*.wav" in rules
